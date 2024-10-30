@@ -1,0 +1,98 @@
+body {
+    background-color: #ff8fd0; /* Cor de fundo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa a altura total da tela */
+    margin: 0; /* Remove margens padrão */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
+#form {
+    background-color: white; /* Fundo do formulário */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 300px; /* Largura do formulário */
+}
+
+h3 {
+    text-align: center; /* Centraliza o título */
+    color: #333; /* Cor do texto do título */
+}
+
+table {
+    width: 100%; /* Largura da tabela */
+    margin: 10px 0; /* Margem acima e abaixo da tabela */
+}
+
+td {
+    padding: 10px; /* Espaçamento nas células da tabela */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%; /* Largura total dos campos */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ff72e8; /* Borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-sizing: border-box; /* Inclui o padding e border na largura total */
+    font-size: medium; /* Tamanho da fonte */
+}
+
+textarea {
+    height: 100px; /* Altura fixa para a textarea */
+    resize: none; /* Desativa o redimensionamento da textarea */
+}
+
+#botao {
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    width: 100%; /* Largura total do botão */
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #fc8bfc; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: medium; /* Tamanho da fonte */
+    transition: background-color 0.3s; /* Efeito suave ao passar o mouse */
+}
+
+#botao:hover {
+    background-color: #f73da9; /* Cor do botão ao passar o mouse */
+}
+
+/* Menu de navegação */
+#menu {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: #ff72e8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu ul li {
+    margin: 10px 0;
+}
+
+#menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Rodapé */
+#rodape {
+    text-align: center; /* Centraliza o texto do rodapé */
+    margin-top: 20px; /* Margem acima do rodapé */
+    color: #333; /* Cor do texto do rodapé */
+    margin-bottom: 20px; /* Margem abaixo do rodapé para afastar da parte inferior */
+}
