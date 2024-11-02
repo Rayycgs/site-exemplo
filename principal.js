@@ -1,76 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // VALIDAR TELEFONE //*
 
-
+    document.getElementById('telefone').addEventListener('input', function (e) {
+        let numbers = e.target.value.replace(/\D/g, ''); 
     
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-    function adicionarAoCarrinho(produto) {
-        carrinho.push(produto);
-        salvarCarrinho();
-        atualizarQuantidadeCarrinho();
-    }
-
-    function salvarCarrinho() {
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    }
-
-    function atualizarQuantidadeCarrinho() {
-        const quantidadeCarrinho = document.getElementById("quantidade-carrinho");
-        quantidadeCarrinho.innerText = carrinho.length;
-    }
-
-    function exibirCarrinho() {
-        const itensCarrinho = document.getElementById("itens-carrinho");
-        itensCarrinho.innerHTML = ""; // Limpa o conteúdo anterior
-
-        if (carrinho.length === 0) {
-            itensCarrinho.innerHTML = "<p>O carrinho está vazio.</p>";
-            return;
-        }
-
-        carrinho.forEach(item => {
-            const divItem = document.createElement("div");
-            divItem.className = "item-carrinho";
-            divItem.innerHTML = `
-                <h4>${item.nome}</h4>
-                <span>R$ ${item.preco.toFixed(2)}</span>
-                <button onclick="removerItem(${item.id})">Remover</button>
-            `;
-            itensCarrinho.appendChild(divItem);
-        });
-    }
-
-    window.removerItem = function(id) {
-        carrinho = carrinho.filter(item => item.id !== id);
-        salvarCarrinho(); // Salva as alterações no localStorage
-        exibirCarrinho(); // Atualiza a exibição do carrinho
-        atualizarQuantidadeCarrinho(); // Atualiza a quantidade no carrinho
-    }
-
-    document.getElementById("finalizar-compra")?.addEventListener("click", () => {
-        if (carrinho.length > 0) {
-            alert("Compra finalizada com sucesso!");
-            carrinho = []; // Limpa o carrinho após a compra
-            salvarCarrinho(); // Salva as alterações no localStorage
-            exibirCarrinho(); // Atualiza a exibição do carrinho
-            atualizarQuantidadeCarrinho(); // Atualiza a quantidade no carrinho
-        } else {
-            alert("O carrinho está vazio!");
-        }
-    });
-
-    document.querySelectorAll(".adicionar-carrinho").forEach((button, index) => {
-        button.addEventListener("click", () => {
-            const produtoNome = button.parentElement.querySelector("h2").innerText;
-            const produtoPreco = parseFloat(button.parentElement.querySelector("p").innerText.replace("Preço: R$ ", "").replace(",", "."));
+       
+        if (numbers.length > 10) {
             
-            const produto = { id: index + 1, nome: produtoNome, preco: produtoPreco };
-            adicionarAoCarrinho(produto);
-            alert(`${produtoNome} foi adicionado ao carrinho!`);
-        });
+            e.target.value = numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        } else if (numbers.length > 6) {
+            
+            e.target.value = numbers.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+        } else if (numbers.length > 2) {
+           
+            e.target.value = numbers.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+        } else {
+            
+            e.target.value = numbers.replace(/(\d*)/, '($1');
+        }   
     });
 
-    exibirCarrinho();
-    atualizarQuantidadeCarrinho();
+    //* VALIDAÇÃO DO FORMULARIO//*
+
+    document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault();     
+
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const mensagem = document.getElementById('mensagem').value;
+    
+        if (nome && email && telefone && mensagem) {
+            document.getElementById('message').style.display = 'block'; 
+            document.getElementById('form').reset(); 
+        } else {
+            alert('Por favor, preencha todos os campos.'); 
+        }
+    });
 });

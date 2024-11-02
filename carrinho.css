@@ -96,7 +96,10 @@ h1 {
 
 
 #rodape {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-    margin-top: 20px;
     color: #333;
+    padding: 10px 0;
 }

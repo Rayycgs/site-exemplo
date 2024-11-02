@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Contato - Dália Negra Oficial 🌸 </title>
-    <link rel="stylesheet" href="contato.css">
+    <link rel="stylesheet" href="css/contato.css">
 
 </head>
 <body>
     <div id="menu">
         <ul>
-            <li> <a href="index.html"> Início </a></li>
+            <li> <a href="principal.html"> Início </a></li>
             <li> <a href="produtos.html"> Produtos </a></li>
             <li> <a href="contato.html"> Contato </a></li>
             <li><a href="carrinho.html">Carrinho (<span id="quantidade-carrinho">0</span>)</a></li>
@@ -22,19 +22,14 @@
         <table>
             <tr>
                 <td> Nome Completo: </td>
-                <td><input type="text" name="nome"></td>
+                <td><input type="text" id="nome" name="nome"></td>
             <tr>
                 <td> E-Mail </td>
-                <td><input type="email" name="email"></td>
+                <td><input type="email" id="email" name="email"></td>
             <tr>
                 <td> Telefone </td>
-                <td> <input type="tel" 
-                           id="telefone" 
-                           name="telefone" 
-                           required 
-                           placeholder="(00) 00000-0000" 
-                           pattern="\(\d{2}\) \d{5}-\d{4}" 
-                           title="Formato: (00) 00000-0000"> </td>
+                <td> <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" 
+                maxlength="15"> </td>
                     
             </tr>
                 <td> Qual sua dúvida? </td>
@@ -42,15 +37,18 @@
                 <br>
             </table>
             <br>
-            <button id="botao" type="submit"> Enviar </button>
+            <button id="botao" type="submit"> Enviar </button>            
 
-            <div id="rodape">
-                <br>
-                <h4>Todos os direitos reservados</h4>
-            </div>
+            <p id="message"> Mensagem enviada com sucesso! Aguarde contato. </p>
+
 
 </form>
 
-<script src="principal.js"> </script>
+<div id="rodape">
+    <br>
+    <h4>Todos os direitos reservados</h4>
+</div>
+
+<script src="js/principal.js"> </script>
 </body>
 </html>
